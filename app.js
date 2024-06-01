@@ -20,12 +20,17 @@ app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
   res.render('home');
+});
+
+app.get('/login', (req, res) => {
+  res.render('login');
 });
 
 app.listen(PORT, () => {
