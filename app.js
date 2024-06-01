@@ -71,7 +71,7 @@ app.post('/login', async (req, res) => {
       check.password
     );
     if (isPasswordMatch) {
-      res.render('home');
+      res.redirect('/');
     } else {
       res.send('Wrong Password');
     }
