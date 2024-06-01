@@ -8,3 +8,9 @@
     margin-bottom: 10px
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .nav-box {
+    margin-left: 40px
+  }
+}

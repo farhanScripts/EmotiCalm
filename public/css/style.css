@@ -4,7 +4,7 @@
   --primary-color: #f9cc48;
   --secondary-color: #14467c;
   --third-color: #52b774;
-  --background-color: #f8f5ee;
+  --background-color: #ffead0;
 }
 
 * {
@@ -15,6 +15,10 @@
   border: none;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
+}
+
+.nav-box {
+  margin-left: 200px;
 }
 
 .login-container {
@@ -41,31 +45,55 @@
   font-weight: bold;
 }
 
+.navbar {
+  background-color: var(--background-color);
+}
+
+.btn {
+  height: 44px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-login-nav{
+  background-color: var(--primary-color);
+  margin-left: 10px;
+}
+
+.btn-signup-nav {
+  border: 1px solid var(--primary-color);
+}
+
 .hero {
   background-color: #ffead0;
   height: 100vh;
   display: flex;
   align-items: center;
+  font-family: 'Poppins', sans-serif;
 }
 
 .hero-content h1 {
   font-size: 3em;
-  color: #000;
+  color: var(--secondary-color);
+  font-weight: 800;
 }
 
 .hero-content p {
-  font-size: 1.2em;
-  color: #333;
+  font-size: 1.5em;
+  color: black;
+  line-height: 2.5rem;
+  text-align: justify;
 }
 
 .hero-buttons .forum {
-  background-color: #007bff;
+  background-color: var(--secondary-color);
   color: #fff;
+  font-family: 'Poppins', sans-serif;
 }
 
 .hero-buttons .journal {
   background-color: #ffc107;
   color: #000;
+
 }
 
 .about-us {
