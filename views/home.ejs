@@ -4,8 +4,198 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emoticalm</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
   </head>
+
   <body>
-    <h1>Ini Homepage!</h1>
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">EmotiCalm</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Forum Discussion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">My Diary</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Calendar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+            </ul>
+            <div class="navbar-nav">
+              <a class="btn btn-outline-primary mr-2" href="#">Sign Up</a>
+              <a class="btn btn-outline-secondary" href="#">Sign In</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero d-flex align-items-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 hero-content">
+            <h1>Hello EmotiCalm</h1>
+            <p>
+              Hadapi hari-hari dengan mood yang lebih baik bersama EmotiCalm
+            </p>
+            <div class="hero-buttons">
+              <button class="btn btn-primary forum">Forum Diskusi</button>
+              <button class="btn btn-warning journal">My Journal</button>
+            </div>
+          </div>
+          <div class="col-md-6 hero-image text-center">
+            <img
+              src="assets/images/orang.png"
+              class="img-fluid"
+              alt="EmotiCalm Logo"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us py-5 bg-white">
+      <div class="container">
+        <h2 class="text-center mb-4">About Us</h2>
+        <div class="row align-items-center mb-4">
+          <div class="col-md-8">
+            <p>
+              Selamat datang di EmotiCalm, sebuah destinasi yang didedikasikan
+              untuk meningkatkan kesejahteraan emosional Anda. Di EmotiCalm,
+              kami percaya bahwa setiap orang memiliki hak untuk merasakan
+              kedamaian dalam pikiran dan hati mereka, dan itulah mengapa kami
+              berkomitmen untuk menyediakan solusi yang efektif untuk
+              meningkatkan mood dan keseimbangan emosi.
+            </p>
+          </div>
+          <div class="col-md-4 text-center">
+            <img
+              src="/assets/images/sementara.png"
+              class="img-fluid about-us logo"
+              alt="About Us Image"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p>
+              Di EmotiCalm, kami percaya bahwa transparansi dan komunikasi yang
+              terbuka adalah kunci untuk membangun hubungan yang kokoh dengan
+              pelanggan kami. Kami menyadari bahwa setiap individu memiliki
+              kebutuhan unik dan pertanyaan yang berbeda-beda mengenai
+              kesejahteraan emosional mereka.
+            </p>
+            <p>
+              Kami mengundang Anda untuk berinteraksi dengan kami secara
+              langsung. Apakah Anda memiliki pertanyaan tentang produk kami,
+              ingin mendapatkan saran tentang manajemen stres, atau sekadar
+              ingin berbagi pengalaman Anda dengan EmotiCalm, tim kami siap
+              membantu Anda.
+            </p>
+            <div class="text-left">
+              <button class="btn btn-primary">Contact Us</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services py-5 bg-light">
+      <div class="container text-center">
+        <h2>What we Served</h2>
+        <div class="row service-cards justify-content-center">
+          <div class="col-md-4 mb-3">
+            <div class="card p-3">
+              <h3>My Diary</h3>
+              <p>Personal diary to track your emotions.</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card p-3">
+              <h3>Calendar</h3>
+              <p>Keep track of your daily activities and appointments.</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card p-3">
+              <h3>Discussion Page</h3>
+              <p>Join discussions and connect with others.</p>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary mt-3">Detail Information</button>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="py-4 bg-warning text-dark">
+      <div class="container footer-content">
+        <div class="row">
+          <div class="col-md-4 footer-left text-left">
+            <div class="footer-logo-container mb-2">
+              <img
+                src="assets/images/sementara.png"
+                class="img-fluid"
+                alt="Logo"
+              />
+            </div>
+            <h2>EmotiCalm</h2>
+            <p>
+              Emoti Calm merupakan sebuah platform yang mendukung peningkatan
+              produktivitas serta kesehatan mental pengguna demi mencapai
+              kehidupan lebih baik.
+            </p>
+          </div>
+          <div class="col-md-4 footer-center text-center">
+            <h3>Our Features</h3>
+            <p>Forum Discussion</p>
+            <p>My Diary</p>
+            <p>Calendar</p>
+          </div>
+          <div class="col-md-4 footer-right text-left">
+            <h3>Developer</h3>
+            <p>Farhan Putra</p>
+            <p>Hafid Nurmajid</p>
+            <p>Naufal Prayoga</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
