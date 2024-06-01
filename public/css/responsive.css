@@ -1,0 +1,10 @@
+@media screen and (max-width: 480px) {
+  .box-login {
+    height: 100%;
+    padding-bottom: 20px;
+  }
+  .left-box {
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: 10px
+  }
+}
