@@ -1,0 +1,85 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffd480;
+  }
+  
+  .card {
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-1 {
+    color: #333;
+    padding: 10px;
+    text-align: center; 
+    border: none;
+  }
+
+  .card-1 h3 {
+    border: none;
+    background-color: transparent; 
+    text-decoration: none !important;
+  }
+  
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .form-group label,
+  .form-group input {
+  font-size: 14px; 
+  font-weight: normal
+}
+
+  
+  .form-control {
+    height: 40px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-control:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn {
+    background-color: transparent; 
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffd480;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #ff9900;
+    color: #fff;
+  }
+  
+  .btn:active {
+    transform: translateY(2px);
+  }
+  
