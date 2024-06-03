@@ -16,40 +16,15 @@
     <!-- My Style -->
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/responsive.css" />
+    <script
+      src="https://kit.fontawesome.com/b4c366e4be.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
-    <%- include('../partials/navbar_afterLog') %> <%- body %>
-    <!-- Footer Section -->
-    <footer class="py-4 bg-warning text-dark">
-      <div class="container footer-content">
-        <div class="row">
-          <div class="col-md-4 footer-left text-left">
-            <div class="footer-logo-container mb-2">
-              <img src="./images/sementara.png" class="img-fluid" alt="Logo" />
-            </div>
-            <h2>EmotiCalm</h2>
-            <p>
-              Emoti Calm merupakan sebuah platform yang mendukung peningkatan
-              produktivitas serta kesehatan mental pengguna demi mencapai
-              kehidupan lebih baik.
-            </p>
-          </div>
-          <div class="col-md-4 footer-center text-center">
-            <h3>Our Features</h3>
-            <p>Forum Discussion</p>
-            <p>My Diary</p>
-            <p>Calendar</p>
-          </div>
-          <div class="col-md-4 footer-right text-left">
-            <h3>Developer</h3>
-            <p>Farhan Putra</p>
-            <p>Hafid Nurmajid</p>
-            <p>Naufal Prayoga</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%- include('../partials/navbar_afterLog') %> <%- body %> <%-
+    include('../partials/footer') %>
 
     <!-- Bootstrap JS and dependencies -->
     <script
