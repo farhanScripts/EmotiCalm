@@ -1,5 +1,15 @@
 const User = require('../models/loginSchema');
 const bcrypt = require('bcrypt');
+
+/**
+ * GET /my
+ * Home
+ */
+
+exports.myHomePage = (req, res) => {
+  res.render('homeAfterLogin');
+};
+
 /**
  * GET /
  * Home
@@ -67,7 +77,7 @@ exports.loginPost = async (req, res) => {
       check.password
     );
     if (isPasswordMatch) {
-      res.redirect('/');
+      res.redirect('/my');
     } else {
       res.send('Wrong Password');
     }
