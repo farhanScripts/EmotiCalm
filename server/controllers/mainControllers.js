@@ -1,13 +1,13 @@
 const User = require('../models/loginSchema');
 const bcrypt = require('bcrypt');
-
 /**
  * GET /my
  * Home
  */
 
 exports.myHomePage = (req, res) => {
-  res.render('homeAfterLogin');
+  console.log('User Login Info : ', req.user);
+  res.status(200).render('homeAfterLogin');
 };
 
 /**
@@ -16,7 +16,7 @@ exports.myHomePage = (req, res) => {
  */
 
 exports.home = (req, res) => {
-  res.render('home');
+  res.status(200).render('home');
 };
 
 /**
@@ -25,7 +25,7 @@ exports.home = (req, res) => {
  */
 
 exports.signup = (req, res) => {
-  res.render('signup');
+  res.status(200).render('signup');
 };
 
 /**
@@ -41,7 +41,7 @@ exports.signupPost = async (req, res) => {
   //cek apakah user sudah ada di database atau belum
   const userExistInDatabase = await User.findOne({ email: data.email });
   if (userExistInDatabase) {
-    res.send('User already exist. Please log in instead');
+    res.status(400).send('User already exist. Please log in instead');
     // munculin notif pake sweet alert
   } else {
     const saltRounds = 10;
@@ -49,7 +49,7 @@ exports.signupPost = async (req, res) => {
     data.password = hashedPassword;
     const userData = await User.insertMany(data);
     res.redirect('/login');
-    console.log(userData);
+    console.log('User Data dari SignUp : ', userData);
   }
 };
 
@@ -65,23 +65,23 @@ exports.login = (req, res) => {
  * POST /login
  */
 
-exports.loginPost = async (req, res) => {
-  try {
-    const check = await User.findOne({ email: req.body.email });
-    if (!check) {
-      res.send('user name cannot found');
-    }
+// exports.loginPost = async (req, res) => {
+//   try {
+//     const check = await User.findOne({ email: req.body.email });
+//     if (!check) {
+//       res.status(404).send('user name cannot found');
+//     }
 
-    const isPasswordMatch = await bcrypt.compare(
-      req.body.password,
-      check.password
-    );
-    if (isPasswordMatch) {
-      res.redirect('/my');
-    } else {
-      res.send('Wrong Password');
-    }
-  } catch (error) {
-    res.send('Wrong Details');
-  }
-};
+//     const isPasswordMatch = await bcrypt.compare(
+//       req.body.password,
+//       check.password
+//     );
+//     if (isPasswordMatch) {
+//       res.redirect('/my');
+//     } else {
+//       res.status(400).send('Wrong Password');
+//     }
+//   } catch (error) {
+//     res.status(400).send('Wrong Details');
+//   }
+// };
