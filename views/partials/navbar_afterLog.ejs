@@ -32,11 +32,13 @@
           </li>
         </ul>
         <div class="navbar-nav ms-auto">
-          <a
-            class="btn btn-login-nav d-flex justify-content-center align-items-center px-4"
-            href="/logout"
-            >Log Out</a
-          >
+          <form action="/logout?_method=DELETE" method="post">
+            <button
+              class="btn btn-login-nav d-flex justify-content-center align-items-center px-4"
+            >
+              Log Out
+            </button>
+          </form>
         </div>
       </div>
     </div>

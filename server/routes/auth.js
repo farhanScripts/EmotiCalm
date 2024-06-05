@@ -21,7 +21,7 @@ passport.use(
         if (await bcrypt.compare(password, user.password)) {
           return done(null, user);
         } else {
-          return done(null, false, { message: 'Password Incorrect' });
+          return done(null, false, { message: 'Incorrect Password' });
         }
       } catch (error) {
         return done(e);
@@ -54,5 +54,7 @@ router.post(
 router.get('/signup', mainController.signup);
 
 router.post('/signup', mainController.signupPost);
+
+router.delete('/logout', mainController.logout);
 
 module.exports = router;
