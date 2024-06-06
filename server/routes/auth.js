@@ -5,6 +5,9 @@ const mainController = require('../controllers/mainControllers');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/loginSchema');
+const {
+  checkNotAuthenticated,
+} = require('../middleware/checkNotAuthenticated');
 
 passport.use(
   new LocalStrategy(
@@ -40,7 +43,7 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-router.get('/login', mainController.login);
+router.get('/login', checkNotAuthenticated, mainController.login);
 
 router.post(
   '/login',
@@ -51,9 +54,9 @@ router.post(
   })
 );
 
-router.get('/signup', mainController.signup);
+router.get('/signup', checkNotAuthenticated, mainController.signup);
 
-router.post('/signup', mainController.signupPost);
+router.post('/signup', checkNotAuthenticated, mainController.signupPost);
 
 router.delete('/logout', mainController.logout);
 
