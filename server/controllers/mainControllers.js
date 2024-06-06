@@ -37,6 +37,7 @@ exports.signupPost = async (req, res) => {
   const data = {
     email: req.body.email,
     password: req.body.password,
+    username: req.body.username,
   };
   //cek apakah user sudah ada di database atau belum
   const userExistInDatabase = await User.findOne({ email: data.email });
@@ -59,6 +60,15 @@ exports.signupPost = async (req, res) => {
 
 exports.login = (req, res) => {
   res.render('login');
+};
+
+exports.logout = (req, res) => {
+  req.logOut((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/login');
+  });
 };
 
 /**

@@ -11,10 +11,20 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>EmotiCalm || Login</title>
   </head>
 
   <body>
+    <% if (error_messages.length > 0) { %>
+    <script>
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '<%= error_messages[0] %>',
+      });
+    </script>
+    <% } %>
     <div
       class="login-container container-fluid d-flex justify-content-center align-items-center"
     >

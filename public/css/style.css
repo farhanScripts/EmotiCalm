@@ -25,6 +25,10 @@ a:hover{
   margin-left: 200px;
 }
 
+.nav-login-signup-container{
+  margin-left: 100px;
+}
+
 .login-container {
   background-color: var(--background-color);
   min-height: 100vh;
@@ -61,6 +65,10 @@ a:hover{
 .btn-login-nav{
   background-color: var(--primary-color);
   margin-left: 10px;
+}
+
+.btn-login-nav:hover {
+  border: 2px solid var(--primary-color);
 }
 
 .btn-signup-nav {

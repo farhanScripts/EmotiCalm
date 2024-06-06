@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>s
+  <body>
+    <div class="container d-flex justify-content-between">
+      <h1>Hi, <%= username %></h1>
+      <a href="/diary/add" class="btn btn-primary text-center">Add Diary</a>
+    </div>
+    <div class="container mt-5 border border-primary">
+      <div
+        class="container d-flex justify-content-around align-items-start flex-wrap"
+      >
+        <%if(diaries.length > 0) { %> <%for(let diary of diaries) { %>
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="/diary/<%= diary._id %>"><%= diary.title %></a>
+            </h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">
+              <%= diary.mood %>
+            </h6>
+            <p class="card-text"><%= diary.body %></p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+        <%}%> <%} else {%>
+        <h1>Let's create your diary!</h1>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

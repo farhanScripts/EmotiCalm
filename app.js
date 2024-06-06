@@ -8,11 +8,12 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 const PORT = 8000;
 // connect to mongo database via mongoose
 mongoose
-  .connect('mongodb://127.0.0.1:27017/emoticalm')
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     console.log('Connection Open!!');
   })
@@ -36,6 +37,15 @@ app.use(
     secret: process.env.SESSION_KEY,
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URL,
+      collectionName: 'sessions',
+      ttl: 14 * 24 * 60 * 60,
+      autoRemove: 'native',
+    }),
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    },
   })
 );
 
@@ -56,6 +66,7 @@ app.use(passport.session());
 // Routes
 app.use('/', require('./server/routes/auth'));
 app.use('/', require('./server/routes/index'));
+app.use('/diary', require('./server/routes/diary'));
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
