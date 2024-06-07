@@ -130,7 +130,7 @@ a:hover{
 }
 
 .services {
-  background-color: #ffead0;
+  background-color: #ffead0 !important;
 }
 
 .services .service-cards .card {

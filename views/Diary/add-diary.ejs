@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head') %>
+  <head>
+    <%- include('../partials/head') %>
+  </head>
   <body>
     <div class="container mt-5">
       <h1 class="mb-4">Daily Journal</h1>
-      <form action="/diary/<%= diaryId %>?_method=PUT" method="post">
+      <form action="/diary/add" method="post">
         <div class="form-group">
           <label for="title">Title:</label>
           <input
@@ -12,7 +14,6 @@
             class="form-control"
             id="title"
             name="title"
-            value="<%= diary.title %>"
             required
           />
         </div>
@@ -25,9 +26,7 @@
             name="body"
             rows="10"
             required
-          >
-<%= diary.body %></textarea
-          >
+          ></textarea>
         </div>
 
         <div class="form-group">
@@ -64,15 +63,7 @@
             <label class="form-check-label" for="sad">Sad</label>
           </div>
         </div>
-        <div class="container d-flex justify-content-start">
-          <button type="submit" class="btn btn-primary me-2">Update</button>
-          <form
-            action="/diary/<%= diaryId %>/delete?_method=DELETE"
-            method="post"
-          >
-            <button class="btn btn-danger">Delete</button>
-          </form>
-        </div>
+        <button type="submit" class="btn btn-primary me-2">Create</button>
       </form>
     </div>
   </body>
