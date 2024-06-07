@@ -49,3 +49,51 @@ exports.getDiaryDetail = async (req, res) => {
     res.status(404).send('Diary not found!');
   }
 };
+
+/**
+ * UPDATE DIARY BASE ON ID
+ */
+
+exports.updateDiary = async (req, res) => {
+  try {
+    await Diary.findOneAndUpdate(
+      { _id: req.params.id },
+      { title: req.body.title, body: req.body.body, mood: req.body.mood }
+    ).where({ user: req.user.id });
+
+    res.redirect('/diary');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/**
+ * DELETE DIARY
+ */
+
+exports.deleteDiary = async (req, res) => {
+  try {
+    await Diary.deleteOne({ _id: req.params.id }).where({ user: req.user.id });
+    res.redirect('/diary');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/**
+ * ADD DIARY
+ */
+
+exports.addDiary = async (req, res) => {
+  res.render('Diary/add-diary');
+};
+
+exports.newDiary = async (req, res) => {
+  try {
+    req.body.user = req.user.id;
+    await Diary.create(req.body);
+    res.redirect('/diary');
+  } catch (error) {
+    console.log(error);
+  }
+};
