@@ -10,8 +10,10 @@
           helps reduce stress and anxiety.
         </p>
         <div class="hero-buttons">
-          <button class="btn btn-primary forum px-4">Forum Discussion</button>
-          <button class="btn btn-warning journal px-4">My Diary</button>
+          <a href="/forum" class="btn btn-primary forum px-4"
+            >Forum Discussion</a
+          >
+          <a href="/diary" class="btn btn-warning journal px-4">My Diary</a>
         </div>
       </div>
       <div class="col-md-6 hero-image text-center">
@@ -24,8 +26,8 @@
 <!-- About Us Section -->
 <section class="about-us py-5 bg-white">
   <div class="container">
-    <h2 class="text-center mb-4">About Us</h2>
-    <div class="row align-items-center mb-4">
+    <h2 class="text-center mb-5">About Us</h2>
+    <div class="row align-items-center mb-5">
       <div class="col-md-8">
         <p>
           Selamat datang di EmotiCalm, sebuah destinasi yang didedikasikan untuk
@@ -40,27 +42,63 @@
         <img
           src="./images/emoticalm_logo.png"
           class="img-fluid about-us logo"
-          alt="About Us Image"
+          alt="Logo"
         />
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <p>
-          Di EmotiCalm, kami percaya bahwa transparansi dan komunikasi yang
-          terbuka adalah kunci untuk membangun hubungan yang kokoh dengan
-          pelanggan kami. Kami menyadari bahwa setiap individu memiliki
-          kebutuhan unik dan pertanyaan yang berbeda-beda mengenai kesejahteraan
-          emosional mereka.
-        </p>
-        <p>
-          Kami mengundang Anda untuk berinteraksi dengan kami secara langsung.
-          Apakah Anda memiliki pertanyaan tentang produk kami, ingin mendapatkan
-          saran tentang manajemen stres, atau sekadar ingin berbagi pengalaman
-          Anda dengan EmotiCalm, tim kami siap membantu Anda.
-        </p>
-        <div class="text-left">
-          <button class="btn btn-primary">Contact Us</button>
+    <div class="row separator mb-5">
+      <div class="col-md-5">
+        <div class="card p-4">
+          <h3>Visi</h3>
+          <p>
+            Website ini adalah menjadi sumber inspirasi yang dapat meningkatkan
+            mood pengguna. Kami berkomitmen menghadirkan konten-konten yang
+            menginspirasi mereka dan menjadi panduan bagi mereka dalam meraih
+            kesejahteraan emosional.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="card p-4">
+          <h3>Misi</h3>
+          <p>
+            Website ini adalah menjadi sumber inspirasi yang dapat meningkatkan
+            mood pengguna. Kami berkomitmen menghadirkan konten-konten yang
+            menginspirasi mereka dan menjadi panduan bagi mereka dalam meraih
+            kesejahteraan emosional.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center mt-4">
+      <div class="col-md-4">
+        <div class="role">
+          <img
+            src="./images/orang.png"
+            class="img-fluid role-img"
+            alt="Hafid"
+          />
+          <p>Hafid Nurmajid</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="role">
+          <img
+            src="./images/orang.png"
+            class="img-fluid role-img"
+            alt="Farhan"
+          />
+          <p>Farhan Putra</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="role">
+          <img
+            src="./images/orang.png"
+            class="img-fluid role-img"
+            alt="Naufal"
+          />
+          <p>Naufal Prayoga</p>
         </div>
       </div>
     </div>
@@ -70,25 +108,46 @@
 <!-- Services Section -->
 <section class="services py-5 bg-light">
   <div class="container text-center">
-    <h2>What we Served</h2>
+    <h2 class="mb-5">What we Served</h2>
     <div class="row service-cards justify-content-center">
       <div class="col-md-4 mb-3">
-        <div class="card p-3">
-          <h3>My Diary</h3>
-          <p>Personal diary to track your emotions.</p>
-        </div>
+        <a href="/diary" class="card-link">
+          <div class="card p-3 h-100">
+            <img
+              src="./images/diary.png"
+              class="img-fluid mb-3"
+              alt="My Diary"
+            />
+            <h3>My Diary</h3>
+            <p>Personal diary to track your emotions.</p>
+          </div>
+        </a>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="card p-3">
-          <h3>Calendar</h3>
-          <p>Keep track of your daily activities and appointments.</p>
-        </div>
+        <a href="/calendar" class="card-link">
+          <div class="card p-3 h-100">
+            <img
+              src="./images/calender.png"
+              class="img-fluid mb-3"
+              alt="Calendar"
+            />
+            <h3>Calendar</h3>
+            <p>Keep track of your daily activities and appointments.</p>
+          </div>
+        </a>
       </div>
       <div class="col-md-4 mb-3">
-        <div class="card p-3">
-          <h3>Discussion Page</h3>
-          <p>Join discussions and connect with others.</p>
-        </div>
+        <a href="/discussion" class="card-link">
+          <div class="card p-3 h-100">
+            <img
+              src="./images/discussion.png"
+              class="img-fluid mb-3"
+              alt="Discussion"
+            />
+            <h3>Discussion Page</h3>
+            <p>Join discussions and connect with others.</p>
+          </div>
+        </a>
       </div>
     </div>
     <button class="btn btn-primary mt-3">Detail Information</button>
