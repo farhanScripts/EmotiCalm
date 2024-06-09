@@ -64,15 +64,11 @@
             <label class="form-check-label" for="sad">Sad</label>
           </div>
         </div>
-        <div class="container d-flex justify-content-start">
-          <button type="submit" class="btn btn-primary me-2">Update</button>
-          <form
-            action="/diary/<%= diaryId %>/delete?_method=DELETE"
-            method="post"
-          >
-            <button class="btn btn-danger">Delete</button>
-          </form>
-        </div>
+
+        <button type="submit" class="btn btn-primary me-2">Update</button>
+      </form>
+      <form action="/diary/<%= diaryId %>/delete?_method=DELETE" method="post">
+        <button class="btn btn-danger">Delete</button>
       </form>
     </div>
   </body>
