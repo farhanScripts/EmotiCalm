@@ -1,4 +1,3 @@
-/* PHONE RESPONSIVE */
 @media screen and (max-width: 480px) {
   .box-login {
     height: 100%;
@@ -30,3 +29,5 @@
     margin-left: 50px
   }
 }
+
+ 
