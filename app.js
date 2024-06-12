@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+
 const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
@@ -46,7 +47,7 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
-  })
+  }),
 );
 
 // use express-flash for flash messages

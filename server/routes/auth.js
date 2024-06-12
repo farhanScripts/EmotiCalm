@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const mainController = require('../controllers/mainControllers');
@@ -23,14 +24,13 @@ passport.use(
       try {
         if (await bcrypt.compare(password, user.password)) {
           return done(null, user);
-        } else {
-          return done(null, false, { message: 'Incorrect Password' });
         }
+        return done(null, false, { message: 'Incorrect Password' });
       } catch (error) {
         return done(e);
       }
-    }
-  )
+    },
+  ),
 );
 
 passport.serializeUser((user, done) => done(null, user.id));
@@ -51,7 +51,7 @@ router.post(
     successRedirect: '/my',
     failureRedirect: '/login',
     failureFlash: true,
-  })
+  }),
 );
 
 router.get('/signup', checkNotAuthenticated, mainController.signup);

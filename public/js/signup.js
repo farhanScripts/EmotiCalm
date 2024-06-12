@@ -1,13 +1,13 @@
-document.getElementById('signupForm').addEventListener('submit', function(event) {
-  var username = document.getElementById('username').value.trim();
-  var email = document.getElementById('email').value.trim();
-  var password = document.getElementById('password').value;
-  var confirmPassword = document.getElementById('confirm_password').value;
+document.getElementById('signupForm').addEventListener('submit', (event) => {
+  const username = document.getElementById('username').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm_password').value;
 
-  var usernameError = document.getElementById('usernameError');
-  var emailError = document.getElementById('emailError');
-  var passwordError = document.getElementById('passwordError');
-  var confirmPasswordError = document.getElementById('confirmPasswordError');
+  const usernameError = document.getElementById('usernameError');
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
+  const confirmPasswordError = document.getElementById('confirmPasswordError');
 
   usernameError.innerHTML = '';
   emailError.innerHTML = '';
@@ -45,6 +45,6 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
 });
 
 function isValidEmail(email) {
-  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }

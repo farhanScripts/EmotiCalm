@@ -1,5 +1,5 @@
-const User = require('../models/loginSchema');
 const bcrypt = require('bcrypt');
+const User = require('../models/loginSchema');
 /**
  * GET /my
  * Home
@@ -41,7 +41,7 @@ exports.signupPost = async (req, res) => {
     password: req.body.password,
     username: req.body.username,
   };
-  //cek apakah user sudah ada di database atau belum
+  // cek apakah user sudah ada di database atau belum
   const userExistInDatabase = await User.findOne({ email: data.email });
   if (userExistInDatabase) {
     res.status(400).send('User already exist. Please log in instead');

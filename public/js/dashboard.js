@@ -11,12 +11,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
-/**
- * TODO :
- * 1. Ambil data mood user dari database
- * 2. Select mood user, ubah background color berdasarkan mood user
- *   2.a Happy = .bg-success-subtle
- *   2.b Netral = .bg-warning-subtle
- *   2.b Sad  = .bg-danger-subtle
- */
