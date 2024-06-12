@@ -1,33 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head') %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= locals.pageTitle %></title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <script
+      src="https://kit.fontawesome.com/b4c366e4be.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Pass the diaries data to the client-side JavaScript
+      const diaries = <%- JSON.stringify(diaries) %>;
+    </script>
+    <script src="js/dashboard.js" defer></script>
+  </head>
   <body>
-    <div class="container d-flex justify-content-between">
-      <h1>Hi, <%= username %></h1>
-      <a href="/diary/add" class="btn btn-primary text-center">Add Diary</a>
-    </div>
-    <div class="container mt-5 border border-primary">
-      <div
-        class="container d-flex justify-content-around align-items-start flex-wrap"
-      >
-        <%if(diaries.length > 0) { %> <%for(let diary of diaries) { %>
-        <div class="card" style="width: 18rem">
-          <div class="card-body">
-            <h5 class="card-title">
-              <a href="/diary/<%= diary._id %>"><%= diary.title %></a>
-            </h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">
-              <%= diary.mood %>
-            </h6>
-            <p class="card-text"><%= diary.body %></p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+    <%- include('../partials/navbar_afterLog') %>
+    <main>
+
+      <article id="main-container-diary" class="container-diary container-fluid">
+        <section
+          class="container-lg d-flex justify-content-between align-items-center pt-2"
+          id="head-diary-container"
+        >
+        <h5>Sort By :</h6>
+          <div class="d-flex justify-content-center align-items-center flex-wrap sort-container">
+            <a
+              href="/diary?sort=newest"
+              class="btn btn-primary mx-2 d-flex align-items-center"
+              role="button"
+              >Newest</a
+            >
+            <a
+              href="/diary?sort=happy"
+              class="btn btn-primary mx-2 d-flex align-items-center"
+              role="button"
+              >Happy</a
+            >
+            <a
+              href="/diary?sort=sad"
+              class="btn btn-primary mx-2 d-flex align-items-center"
+              role="button"
+              >Sad</a
+            >
+            <a
+              href="/diary?sort=normal"
+              class="btn btn-primary mx-2 d-flex align-items-center"
+              role="button"
+              >Normal</a
+            >
           </div>
-        </div>
-        <%}%> <%} else {%>
-        <h1>Let's create your diary!</h1>
-        <% } %>
-      </div>
-    </div>
+  
+          <a
+            class="btn btn-primary d-flex align-items-center"
+            href="/diary/add"
+            role="button"
+          >
+            <i class="fa-solid fa-book px-2"></i> Add Diary
+          </a>
+        </section>
+  
+        <section
+          class="container-lg mb-3 d-flex justify-content-start align-items-center"
+        ></section>
+  
+        <section
+          class="container-lg card-container d-flex justify-content-center align-items-center flex-wrap"
+          id="diary-container"
+        >
+          <div class="container-fluid"></div>
+          <% if(diaries.length > 0) { %> <% for(let diary of diaries) { %>
+          <div class="card diary-card m-3">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a
+                  href="/diary/<%= diary._id %>"
+                  class="diary-title"
+                  id="diary-title"
+                  ><%= diary.title %></a
+                >
+              </h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary my-4">
+                <span id="mood-user" class="mood-span px-4 py-2 rounded">
+                  <% if(diary.mood == "Happy") {%><i
+                    class="fa-solid fa-face-smile-wink fa-xl"
+                  ></i>
+                  <% } else if(diary.mood == "Normal") {%>
+                  <i class="fa-solid fa-face-rolling-eyes fa-xl"></i><% } else {%>
+                  <i class="fa-solid fa-face-sad-tear fa-xl"></i> <% } %><%=
+                  diary.mood %></span
+                >
+              </h6>
+              <p class="card-text my-4"><%= diary.body %></p>
+            </div>
+          </div>
+          <% } %> <% } else { %>
+          <h1 class="d-flex align-items-center justify-content-center my-5">
+            Let's Create Your Diary!
+          </h1>
+          <% } %>
+        </section>
+      </article>
+    </main>
+
+    <%- include('../partials/footer')  %>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

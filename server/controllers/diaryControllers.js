@@ -17,10 +17,12 @@ exports.getAllDiary = async (req, res) => {
         $project: {
           title: { $substr: ['$title', 0, 30] },
           body: { $substr: ['$body', 0, 100] },
+          mood: 1,
+          createdAt: 1,
         },
       },
     ]);
-
+    console.log(diaries);
     res.render('Diary/dashboard', {
       username: req.user.username,
       locals,
