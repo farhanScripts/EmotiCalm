@@ -52,6 +52,16 @@
     margin: 10px auto;
     width: 90%;
   }
+
+  #head-diary-container {
+    flex-direction: column;
+  }
+
+  .sort-container {
+    margin-bottom: 20px;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+  }
 }
 
 /* TABLET RESPONSIVE */

@@ -7,7 +7,9 @@ const bcrypt = require('bcrypt');
 
 exports.myHomePage = (req, res) => {
   console.log('User Login Info : ', req.user);
-  res.status(200).render('homeAfterLogin');
+  res.status(200).render('homeAfterLogin', {
+    username: req.user.username,
+  });
 };
 
 /**
@@ -70,28 +72,3 @@ exports.logout = (req, res) => {
     res.redirect('/login');
   });
 };
-
-/**
- * POST /login
- */
-
-// exports.loginPost = async (req, res) => {
-//   try {
-//     const check = await User.findOne({ email: req.body.email });
-//     if (!check) {
-//       res.status(404).send('user name cannot found');
-//     }
-
-//     const isPasswordMatch = await bcrypt.compare(
-//       req.body.password,
-//       check.password
-//     );
-//     if (isPasswordMatch) {
-//       res.redirect('/my');
-//     } else {
-//       res.status(400).send('Wrong Password');
-//     }
-//   } catch (error) {
-//     res.status(400).send('Wrong Details');
-//   }
-// };
