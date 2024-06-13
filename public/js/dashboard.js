@@ -1,5 +1,4 @@
 const moodUser = document.querySelectorAll('#mood-user');
-console.dir(moodUser);
 document.addEventListener('DOMContentLoaded', () => {
   moodUser.forEach((user) => {
     if (user.innerText == 'Normal') {

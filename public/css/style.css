@@ -237,6 +237,12 @@ a:hover {
   font-family: 'Poppins', sans-serif;
 }
 
+.container-afirmasi {
+  background:var(--primary-color);
+  border-radius: 20px;
+  height: 100px;
+}
+
 .card-container{
   background: var(--primary-color);
   border-radius: 20px;
