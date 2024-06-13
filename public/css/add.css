@@ -92,15 +92,22 @@ body {
     background-color: #f9cc48;
   }
   
-  .btn {
-    display: block;
-    margin-top: 20px;
-    width: 100%; 
+  .button-container {
+    display: flex;
+    margin-top: 20px; 
+    gap: 10px; 
   }
-
-.btn.back-btn {
-  display: inline-block;
-}
+  
+  
+  .btn {
+    flex: 1; 
+  }
+  
+  .form-group button {
+    margin-left: 10px; 
+  }
+  
+  
   
   
   

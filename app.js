@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-
 const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
@@ -11,7 +10,8 @@ const flash = require('express-flash');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
+
 // connect to mongo database via mongoose
 mongoose
   .connect(process.env.MONGODB_URL)
@@ -47,7 +47,7 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
-  }),
+  })
 );
 
 // use express-flash for flash messages
@@ -68,6 +68,9 @@ app.use(passport.session());
 app.use('/', require('./server/routes/auth'));
 app.use('/', require('./server/routes/index'));
 app.use('/diary', require('./server/routes/diary'));
+
+// Add the new route for /api/affirmation
+app.use(require('./server/routes/affirmation'));
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
