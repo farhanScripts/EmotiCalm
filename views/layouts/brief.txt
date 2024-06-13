@@ -1,3 +1,0 @@
-Isi folder layouts ini dengan format .ejs di dalamnya 
-sama seperti html biasa dan digunakan untuk inject
-komponen pada tiap halaman

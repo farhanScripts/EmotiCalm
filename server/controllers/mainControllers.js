@@ -6,7 +6,6 @@ const User = require('../models/loginSchema');
  */
 
 exports.myHomePage = (req, res) => {
-  console.log('User Login Info : ', req.user);
   res.status(200).render('homeAfterLogin', {
     username: req.user.username,
   });
@@ -45,14 +44,12 @@ exports.signupPost = async (req, res) => {
   const userExistInDatabase = await User.findOne({ email: data.email });
   if (userExistInDatabase) {
     res.status(400).send('User already exist. Please log in instead');
-    // munculin notif pake sweet alert
   } else {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(data.password, saltRounds);
     data.password = hashedPassword;
     const userData = await User.insertMany(data);
     res.redirect('/login');
-    console.log('User Data dari SignUp : ', userData);
   }
 };
 

@@ -30,7 +30,6 @@ exports.getAllDiary = async (req, res) => {
   try {
     if (mood) {
       const diaries = await Diary.find(query).sort({ createdAt: -1 });
-      console.log(diaries);
       renderDashboard(diaries);
     } else {
       const diaries = await Diary.aggregate([
@@ -45,7 +44,6 @@ exports.getAllDiary = async (req, res) => {
           },
         },
       ]);
-      console.log(diaries);
       renderDashboard(diaries);
     }
   } catch (error) {
@@ -80,7 +78,7 @@ exports.updateDiary = async (req, res) => {
   try {
     await Diary.findOneAndUpdate(
       { _id: req.params.id },
-      { title: req.body.title, body: req.body.body, mood: req.body.mood },
+      { title: req.body.title, body: req.body.body, mood: req.body.mood }
     ).where({ user: req.user.id });
 
     res.redirect('/diary');

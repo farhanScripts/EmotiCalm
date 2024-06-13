@@ -1,2 +1,0 @@
-Isi folder partials ini
-dengan komponen navbar dan footer
