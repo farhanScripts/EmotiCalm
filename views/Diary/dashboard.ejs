@@ -20,17 +20,12 @@
       src="https://kit.fontawesome.com/b4c366e4be.js"
       crossorigin="anonymous"
     ></script>
-    <script>
-      // Pass the diaries data to the client-side JavaScript
-      const diaries = <%- JSON.stringify(diaries) %>;
-    </script>
     <script src="js/dashboard.js" defer></script>
   </head>
   <body>
     <%- include('../partials/navbar_afterLog') %>
-    <main>
-
-      <article id="main-container-diary" class="container-diary container-fluid">
+    <main class="border border-2">
+      <article id="main-container-diary" class="container-diary container-fluid mt-3">
         <section
           class="container-lg d-flex justify-content-between align-items-center pt-2"
           id="head-diary-container"
@@ -38,25 +33,25 @@
         <h5>Sort By :</h6>
           <div class="d-flex justify-content-center align-items-center flex-wrap sort-container">
             <a
-              href="/diary?sort=newest"
+              href="/diary"
               class="btn btn-primary mx-2 d-flex align-items-center"
               role="button"
-              >Newest</a
+              >All</a
             >
             <a
-              href="/diary?sort=happy"
+              href="/diary?mood=Happy"
               class="btn btn-primary mx-2 d-flex align-items-center"
               role="button"
               >Happy</a
             >
             <a
-              href="/diary?sort=sad"
+              href="/diary?mood=Sad"
               class="btn btn-primary mx-2 d-flex align-items-center"
               role="button"
               >Sad</a
             >
             <a
-              href="/diary?sort=normal"
+              href="/diary?mood=Normal"
               class="btn btn-primary mx-2 d-flex align-items-center"
               role="button"
               >Normal</a
@@ -80,7 +75,6 @@
           class="container-lg card-container d-flex justify-content-center align-items-center flex-wrap"
           id="diary-container"
         >
-          <div class="container-fluid"></div>
           <% if(diaries.length > 0) { %> <% for(let diary of diaries) { %>
           <div class="card diary-card m-3">
             <div class="card-body">
@@ -92,6 +86,7 @@
                   ><%= diary.title %></a
                 >
               </h5>
+              <h6><%= diary.createdAt.toLocaleString()%></h6>
               <h6 class="card-subtitle mb-2 text-body-secondary my-4">
                 <span id="mood-user" class="mood-span px-4 py-2 rounded">
                   <% if(diary.mood == "Happy") {%><i

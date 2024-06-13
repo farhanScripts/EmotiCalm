@@ -1,33 +1,53 @@
-const Diary = require('../models/Diary');
 const mongoose = require('mongoose');
+const Diary = require('../models/Diary');
 /**
  * GET ALL DIARY
  */
 
 exports.getAllDiary = async (req, res) => {
+  const { mood } = req.query;
   const locals = {
     pageTitle: 'Emoticalm | Daily Journal',
   };
-
-  try {
-    const diaries = await Diary.aggregate([
-      { $sort: { updatedAt: -1 } },
-      { $match: { user: new mongoose.Types.ObjectId(req.user.id) } },
-      {
-        $project: {
-          title: { $substr: ['$title', 0, 30] },
-          body: { $substr: ['$body', 0, 100] },
-          mood: 1,
-          createdAt: 1,
-        },
-      },
-    ]);
-    console.log(diaries);
+  const oneWeekAgo = new Date();
+  const renderDashboard = (diaries) => {
     res.render('Diary/dashboard', {
       username: req.user.username,
       locals,
       diaries,
     });
+  };
+  oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+  const query = {
+    createdAt: { $gte: oneWeekAgo },
+  };
+
+  if (mood) {
+    query.mood = mood;
+  }
+
+  try {
+    if (mood) {
+      const diaries = await Diary.find(query).sort({ createdAt: -1 });
+      console.log(diaries);
+      renderDashboard(diaries);
+    } else {
+      const diaries = await Diary.aggregate([
+        { $sort: { updatedAt: -1 } },
+        { $match: { user: new mongoose.Types.ObjectId(req.user.id) } },
+        {
+          $project: {
+            title: { $substr: ['$title', 0, 30] },
+            body: { $substr: ['$body', 0, 100] },
+            mood: 1,
+            createdAt: 1,
+          },
+        },
+      ]);
+      console.log(diaries);
+      renderDashboard(diaries);
+    }
   } catch (error) {
     console.log(error);
   }
@@ -60,7 +80,7 @@ exports.updateDiary = async (req, res) => {
   try {
     await Diary.findOneAndUpdate(
       { _id: req.params.id },
-      { title: req.body.title, body: req.body.body, mood: req.body.mood }
+      { title: req.body.title, body: req.body.body, mood: req.body.mood },
     ).where({ user: req.user.id });
 
     res.redirect('/diary');
