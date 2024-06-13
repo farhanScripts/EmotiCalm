@@ -70,6 +70,10 @@
     margin-left: 0;
   }
 
+  .nav-box-after {
+    margin-left: 0;
+  }
+
   .about-us .logo {
     max-width: 100%;
     height: auto;
@@ -90,5 +94,8 @@
 @media screen and (max-width: 1100px) {
   .nav-box {
     margin-left: 50px;
+  }
+  .nav-box-after {
+    margin-left: 100px;
   }
 }
