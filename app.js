@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
+
 const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
@@ -11,11 +12,13 @@ const flash = require('express-flash');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
+
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
+
 // connect to mongo database via mongoose
 mongoose
   .connect(process.env.MONGODB_URL)
@@ -74,6 +77,7 @@ app.use('/', require('./server/routes/index'));
 app.use('/diary', require('./server/routes/diary'));
 app.use('/forum', require('./server/routes/forum'));
 app.use('/api/forum', require('./server/routes/forumAPI'));
+app.use(require('./server/routes/affirmation'));
 
 // Initialize websocket connections
 io.on('connection', (socket) => {
@@ -88,6 +92,7 @@ io.on('connection', (socket) => {
     console.log('user disconnected');
   });
 });
+
 
 server.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
