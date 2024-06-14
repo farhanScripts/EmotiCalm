@@ -23,14 +23,14 @@
   background-color: var(--primary-color);
   border: none;
   font-weight: 700;
-  color: var(--secondary-color)
+  color: var(--secondary-color);
 }
 
 .btn-primary:hover {
   background-color: transparent;
   border: 2px solid var(--primary-color);
   color: var(--secondary-color) !important;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 /* end bootstrap override*/
@@ -235,21 +235,20 @@ a:hover {
   margin-bottom: 0;
 }
 
-
 /* Dashboard Diary */
 .container-diary {
   background: var(--background-color);
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .container-afirmasi {
-  background:var(--primary-color);
+  background: var(--primary-color);
   border-radius: 20px;
   height: 100px;
 }
 
-.card-container{
+.card-container {
   background: var(--primary-color);
   border-radius: 20px;
 }
