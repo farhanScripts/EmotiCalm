@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-
-const app = express();
+const http = require('http');
+const socketIo = require('socket.io');
 const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
@@ -10,6 +10,10 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketIo(server);
 
 const PORT = 8000;
 // connect to mongo database via mongoose
@@ -47,7 +51,7 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
-  }),
+  })
 );
 
 // use express-flash for flash messages
@@ -68,7 +72,23 @@ app.use(passport.session());
 app.use('/', require('./server/routes/auth'));
 app.use('/', require('./server/routes/index'));
 app.use('/diary', require('./server/routes/diary'));
+app.use('/forum', require('./server/routes/forum'));
+app.use('/api/forum', require('./server/routes/forumAPI'));
 
-app.listen(PORT, () => {
+// Initialize websocket connections
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('new forum', (forum) => {
+    io.emit('new forum', forum);
+  });
+  socket.on('new reply', (reply) => {
+    io.emit('new reply', reply);
+  });
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+});
+
+server.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
