@@ -1,0 +1,54 @@
+:root {
+  --primary-color: #f9cc48;
+  --secondary-color: #14467c;
+  --third-color: #52b774;
+  --background-color: #f8f5ee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+/*
+  Bagian css dibawah ini dimodif aja
+*/
+body {
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  width: 80%;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+#topics {
+  margin-bottom: 20px;
+}
+
+.topic {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.topic h3 {
+  margin: 0;
+}
+
+.topic p {
+  margin: 5px 0;
+}

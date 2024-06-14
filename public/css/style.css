@@ -33,12 +33,18 @@
   transition: .2s ease-in-out;
 }
 
+/* end bootstrap override*/
+
 a:hover {
   color: var(--primary-color) !important;
 }
 
 .nav-box {
-  margin-left: 200px;
+  margin-left: 300px;
+}
+
+.nav-box-after {
+  margin-left: 150px;
 }
 
 .nav-login-signup-container {
