@@ -11,9 +11,9 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/css/forum.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/css/forum.css" />
     <script
       src="https://kit.fontawesome.com/b4c366e4be.js"
       crossorigin="anonymous"
@@ -21,26 +21,45 @@
   </head>
   <body>
     <%- include('../partials/navbar_afterLog') %>
-    <main id="app">
-      <h1>Forum</h1>
-      <div>
-        <h2>Post a new topic</h2>
-        <input
-          type="text"
-          id="title"
-          placeholder="Title"
-          class="border border-1"
-        />
-        <textarea
-          id="content"
-          placeholder="Content"
-          class="border border-1"
-        ></textarea>
-        <button id="postTopic">Post Topic</button>
-      </div>
-      <div id="topics">
+    <main
+      id="app"
+      class="container-lg container-forum p-4 mt-4 rounded rounded-4"
+    >
+      <section
+        class="container-fluid d-flex flex-column justify-content-center align-items-center"
+        id="header-discussion"
+      >
+        <h1>Forum Discussion</h1>
+        <h6>Let's find your problem solution with others!</h6>
+      </section>
+      <section
+        id="form-discussion-container"
+        class="container-fluid form-discussion-container rounded rounded-2 p-4 mt-4"
+      >
+        <div class="d-flex flex-column">
+          <input
+            type="text"
+            id="title"
+            placeholder="Title"
+            class="title-input rounded-top px-4"
+          />
+          <textarea
+            id="content"
+            placeholder="Content"
+            class="content-input rounded-bottom px-4"
+          ></textarea>
+        </div>
+        <button id="postTopic" class="btn btn-primary px-2 post-topic-btn my-3">
+          <i class="fa-solid fa-share-from-square"></i>
+          Post Topic
+        </button>
+      </section>
+      <section
+        id="topics"
+        class="container-lg container-topic-list my-3 rounded rounded-3 p-4"
+      >
         <!-- Topics will be displayed here -->
-      </div>
+      </section>
     </main>
 
     <%- include('../partials/footer') %>
