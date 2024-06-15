@@ -77,6 +77,7 @@ app.use('/', require('./server/routes/index'));
 app.use('/diary', require('./server/routes/diary'));
 app.use('/forum', require('./server/routes/forum'));
 app.use('/api/forum', require('./server/routes/forumAPI'));
+app.use('/calendar', require('./server/routes/calender'))
 app.use(require('./server/routes/affirmation'));
 
 // Initialize websocket connections
