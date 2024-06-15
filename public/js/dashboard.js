@@ -1,3 +1,16 @@
+const moodUser = document.querySelectorAll('#mood-user');
+document.addEventListener('DOMContentLoaded', () => {
+  moodUser.forEach((user) => {
+    if (user.innerText == 'Normal') {
+      user.classList.add('bg-warning');
+    } else if (user.innerText == 'Happy') {
+      user.classList.add('bg-success');
+    } else {
+      user.classList.add('bg-danger');
+    }
+  });
+});
+
 async function fetchAffirmation() {
   try {
     const response = await fetch('/api/affirmation');
@@ -17,7 +30,7 @@ async function typeWriterEffect(textElement, text, speed) {
   while (i < text.length) {
     textElement.innerHTML += text.charAt(i);
     i++;
-    await new Promise(resolve => setTimeout(resolve, speed));
+    await new Promise((resolve) => setTimeout(resolve, speed));
   }
 }
 
@@ -36,18 +49,3 @@ async function displayAffirmation() {
 }
 
 displayAffirmation();
-
-
-
-const moodUser = document.querySelectorAll('#mood-user');
-document.addEventListener('DOMContentLoaded', () => {
-  moodUser.forEach((user) => {
-    if (user.innerText == 'Normal') {
-      user.classList.add('bg-warning');
-    } else if (user.innerText == 'Happy') {
-      user.classList.add('bg-success');
-    } else {
-      user.classList.add('bg-danger');
-    }
-  });
-});
