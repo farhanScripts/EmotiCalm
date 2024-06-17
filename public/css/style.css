@@ -277,7 +277,7 @@ a:hover {
 }
 
 .mood-span {
-  color: white;
+  color: var(--secondary-color);
 }
 
 .mood-user {
