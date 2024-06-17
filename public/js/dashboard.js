@@ -1,16 +1,3 @@
-const moodUser = document.querySelectorAll('.mood-user');
-document.addEventListener('DOMContentLoaded', () => {
-  moodUser.forEach((user) => {
-    if (user.innerText == 'Normal') {
-      user.style.backgroundColor = '#f9cc48';
-    } else if (user.innerText == 'Happy') {
-      user.style.backgroundColor = '#52b774';
-    } else {
-      user.style.backgroundColor = 'Tomato';
-    }
-  });
-});
-
 async function fetchAffirmation() {
   try {
     const response = await fetch('/api/affirmation');
