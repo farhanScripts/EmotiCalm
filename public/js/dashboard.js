@@ -2,11 +2,11 @@ const moodUser = document.querySelectorAll('.mood-user');
 document.addEventListener('DOMContentLoaded', () => {
   moodUser.forEach((user) => {
     if (user.innerText == 'Normal') {
-      user.classList.add('bg-warning');
+      user.style.backgroundColor = '#f9cc48';
     } else if (user.innerText == 'Happy') {
-      user.classList.add('bg-success');
+      user.style.backgroundColor = '#52b774';
     } else {
-      user.classList.add('bg-danger');
+      user.style.backgroundColor = 'Tomato';
     }
   });
 });
