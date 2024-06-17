@@ -280,6 +280,10 @@ a:hover {
   color: white;
 }
 
+.mood-user {
+  background: transparent;
+}
+
 /*
   CALENDAR
 */
