@@ -281,7 +281,7 @@ a:hover {
 }
 
 .mood-user {
-  background: transparent;
+  background: var(--primary-color);
 }
 
 /*
