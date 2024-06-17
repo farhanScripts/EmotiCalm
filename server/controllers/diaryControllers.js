@@ -17,19 +17,25 @@ exports.getAllDiary = async (req, res) => {
       diaries,
     });
   };
-  oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-
-  const query = {
-    createdAt: { $gte: oneWeekAgo },
-  };
-
-  if (mood) {
-    query.mood = mood;
-  }
-
   try {
     if (mood) {
-      const diaries = await Diary.find(query).sort({ createdAt: -1 });
+      const diaries = await Diary.aggregate([
+        { $sort: { updatedAt: -1 } },
+        {
+          $match: {
+            user: new mongoose.Types.ObjectId(req.user.id),
+            mood: mood,
+          },
+        },
+        {
+          $project: {
+            title: { $substr: ['$title', 0, 30] },
+            body: { $substr: ['$body', 0, 100] },
+            mood: 1,
+            createdAt: 1,
+          },
+        },
+      ]);
       renderDashboard(diaries);
     } else {
       const diaries = await Diary.aggregate([
