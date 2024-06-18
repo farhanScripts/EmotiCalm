@@ -65,11 +65,16 @@ Pastikan Kamu sudah menginstall software berikut pada perangkatmu:
    Clone Repo Emoticalm dengan mendownload Zip file dari repository branch (main) atau dengan menjalankan perintah berikut pada terminal
    ``` bash
    git clone https://github.com/farhanScripts/EmotiCalm.git
-3. Buka Repository di IDE Favoritmu
+2. Buka Repository di IDE Favoritmu
    Silahkan Buka Aplikasi Visual Studio Code atau IDE lainnya.
-5. Install Dependencies (libraries) yang diperlukan
+3. Install Dependencies (libraries) yang diperlukan
    ``` bash
    npm install
+4. Buat file .env dengan isi sebagai berikut 
+  ``` bash
+  SESSION_KEY=testing_key
+  MONGODB_URL=mongodb://farhandev06:QFeKHsJscg5p3tlO@ac-mjg1tyw-shard-00-00.orf68oo.mongodb.net:27017,ac-mjg1tyw-shard-00-01.orf68oo.mongodb.net:27017,ac-mjg1tyw-shard-00-02.orf68oo.mongodb.net:27017/mymongodb?ssl=true&replicaSet=atlas-fmwvi2-shard-0&authSource=admin&retryWrites=true&w=majority&appName=mymongodb
+
 
 ### Jalankan Website
 Untuk menjalankan website dengan localhost ketik perintah berikut pada git bash
