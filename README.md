@@ -74,7 +74,7 @@ Pastikan Kamu sudah menginstall software berikut pada perangkatmu:
   ``` bash
   SESSION_KEY=testing_key
   MONGODB_URL=mongodb://farhandev06:QFeKHsJscg5p3tlO@ac-mjg1tyw-shard-00-00.orf68oo.mongodb.net:27017,ac-mjg1tyw-shard-00-01.orf68oo.mongodb.net:27017,ac-mjg1tyw-shard-00-02.orf68oo.mongodb.net:27017/mymongodb?ssl=true&replicaSet=atlas-fmwvi2-shard-0&authSource=admin&retryWrites=true&w=majority&appName=mymongodb
-
+  ```
 
 ### Jalankan Website
 Untuk menjalankan website dengan localhost ketik perintah berikut pada git bash
