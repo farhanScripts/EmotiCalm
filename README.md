@@ -81,6 +81,10 @@ Untuk menjalankan website dengan localhost ketik perintah berikut pada git bash
 ``` bash 
 npx nodemon app.js
 ```
+Ketikkan berikut pada url google chrome 
+``` bash
+https://localhost:8000
+```
 
 ## Teknologi  Libraries yang Digunakan
 - Express
